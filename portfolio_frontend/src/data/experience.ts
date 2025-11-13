@@ -21,6 +21,6 @@ export const experience: ExperienceItem[] = [
       "AI and Cloud Research Intern role based in Bengaluru."
     ],
     logo: "default-company-logo",
-    description: "AI and Cloud Research Intern at Kloudstac, Bengaluru."
+    description: "Worked on Generative AI, Data Engineering, and Cloud (AWS, Azure, GCP, Databricks). Contributed to AI upskilling program development, Generative AI research, and creation of technical content, coding labs, and demos. Gained hands-on experience in LLMs, cloud integration, and modern AI acceleration workflows."
   },
 ];
