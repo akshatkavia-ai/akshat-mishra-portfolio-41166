@@ -50,6 +50,18 @@ body {
   border-radius: var(--radius-sm);
 }
 
+/* Desktop nav underline hover helper: make parent group hover scale underline */
+nav[role="navigation"] a span.relative:hover > span {
+  transform: scaleX(1);
+}
+
+/* Smooth underline track container for active indicator */
+@media (min-width: 768px) {
+  nav[role="navigation"] {
+    position: relative;
+  }
+}
+
 /* Reduce motion preferences */
 @media (prefers-reduced-motion: reduce) {
   * {
