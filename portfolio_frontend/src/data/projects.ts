@@ -16,6 +16,9 @@ export const projects: Project[] = [
     description:
       "Shopnest is my creation, an adaptable and scalable e-commerce solution built for small to medium-sized enterprises. It offers personalized online stores, streamlined product handling, and safe payment options, all powered by Flutter, Node.js, and MongoDB.",
     tags: ["Flutter", "Node.js", "MongoDB", "E-commerce", "Payment Integration"],
+    links: {
+      github: "https://github.com/shishir-09/Shopnest-ecom",
+    },
   },
   {
     title: "Helmet and Pothole Detection",
