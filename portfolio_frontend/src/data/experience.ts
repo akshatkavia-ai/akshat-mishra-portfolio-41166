@@ -1,29 +1,26 @@
 export type ExperienceItem = {
   company: string;
   role: string;
-  duration: string;
-  highlights: string[];
+  duration: string; // kept for compatibility with existing components
+  highlights: string[]; // used by the Experience component
+  // Extended fields for UI completeness
+  period?: string;
+  location?: string;
+  logo?: string;
+  description?: string;
 };
 
 export const experience: ExperienceItem[] = [
   {
-    company: "TechNova",
-    role: "Software Developer",
-    duration: "2023 — Present",
+    company: "Kloudstac",
+    role: "AI and Cloud Research Intern",
+    duration: "May'24 - Jul'24",
+    period: "May'24 - Jul'24",
+    location: "Bengaluru",
     highlights: [
-      "Built ML-driven features to automate data labeling (reduced cost by 30%).",
-      "Designed scalable microservices deployed on AWS with IaC.",
-      "Led performance tuning to achieve 40% faster page loads.",
+      "AI and Cloud Research Intern role based in Bengaluru."
     ],
-  },
-  {
-    company: "CloudHawk",
-    role: "Backend Developer Intern",
-    duration: "2022 — 2023",
-    highlights: [
-      "Implemented event-driven processing pipeline with Kafka.",
-      "Optimized Postgres queries and added caching for 5x speedup.",
-      "Collaborated across teams following DevOps best practices.",
-    ],
+    logo: "default-company-logo",
+    description: "AI and Cloud Research Intern at Kloudstac, Bengaluru."
   },
 ];
