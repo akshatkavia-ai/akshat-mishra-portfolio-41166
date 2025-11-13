@@ -1,7 +1,6 @@
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
 import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
@@ -15,9 +14,6 @@ export default function Home() {
       <Navbar />
       <main id="home" className="flex flex-col">
         <Hero />
-        <Container as="section" id="about" data-section>
-          <About />
-        </Container>
         <Container as="section" id="skills" data-section>
           <Skills />
         </Container>
