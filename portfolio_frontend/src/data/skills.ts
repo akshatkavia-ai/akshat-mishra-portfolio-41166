@@ -17,7 +17,11 @@ export const skills: SkillGroup[] = [
     items: ["MongoDB", "MySQL"],
   },
   {
-    group: "Others",
-    items: ["GraphQL", "PostgreSQL", "Redis", "WebSockets", "Tailwind CSS"],
+    group: "Other Skills",
+    items: ["Python", "C", "Data Analytics","OpenCV","YOLOv5","Object-Oriented Programming (OOP)"],
+  },
+  {
+    group: "Tools & Platforms",
+    items: ["VS Code", "Jupyter Notebook", "Atlassian Jira", "Git", "GitHub"],
   },
 ];
