@@ -157,7 +157,7 @@ export default function Navbar() {
                 <GradientText className="text-lg font-extrabold">
                   Akshat Mishra
                 </GradientText>
-                <div className="text-[10px] text-zinc-400 -mt-0.5">
+                <div className="text-[10px] text-muted -mt-0.5">
                   Software Developer
                 </div>
               </div>
@@ -178,7 +178,7 @@ export default function Navbar() {
                         href={`#${item.id}`}
                         data-nav-link={item.id}
                         className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
-                          ${isActive ? "text-white" : "text-zinc-300 hover:text-white"}
+                          ${isActive ? "text-strong" : "text-default hover:text-strong"}
                           focus-visible:outline-none`}
                         onClick={(e) => {
                           e.preventDefault();

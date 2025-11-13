@@ -52,9 +52,9 @@ export default function Certificates() {
                     : ""
                 }`}
               >
-                <h3 className="font-semibold text-white no-underline">{c.title}</h3>
-                <p className="text-sm text-zinc-300 no-underline">{c.issuer}</p>
-                <p className="text-xs text-zinc-400 mt-1 no-underline">{c.date}</p>
+                <h3 className="font-semibold text-strong no-underline">{c.title}</h3>
+                <p className="text-sm text-default no-underline">{c.issuer}</p>
+                <p className="text-xs text-muted mt-1 no-underline">{c.date}</p>
                 {c.credentialUrl && (
                   <span className="mt-3 inline-flex">
                     <Button

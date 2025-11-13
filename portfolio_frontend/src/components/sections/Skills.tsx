@@ -30,7 +30,7 @@ export default function Skills() {
       <div className="grid md:grid-cols-2 gap-6 reveal">
         {skills.map((group) => (
           <Card key={group.group}>
-            <h3 className="font-semibold text-white">{group.group}</h3>
+            <h3 className="font-semibold text-strong">{group.group}</h3>
             <div className="mt-3 flex flex-wrap gap-2">
               {group.items.map((_skill) => (
                 <Badge

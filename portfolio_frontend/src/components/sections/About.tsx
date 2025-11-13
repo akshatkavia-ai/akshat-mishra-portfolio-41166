@@ -23,14 +23,14 @@ export default function About() {
       {/* Single column content after removing avatar/photo */}
       <div className="reveal">
         <Card>
-          <p className="text-zinc-200 text-center md:text-left">
-            I’m Akshat Mishra, a passionate Software Developer skilled in AI, Cloud, and Full-Stack development. I love creating innovative, scalable solutions that blend technology with creativity.
+          <p className="text-default text-center md:text-left">
+            I&apos;m Akshat Mishra, a passionate Software Developer skilled in AI, Cloud, and Full-Stack development. I love creating innovative, scalable solutions that blend technology with creativity.
           </p>
           <div className="mt-4 flex items-center justify-center md:justify-start gap-3">
             <a href={personal.resumeUrl} target="_blank" rel="noreferrer">
               <Button>Download Resume</Button>
             </a>
-            <span className="text-sm text-zinc-400">{personal.location}</span>
+            <span className="text-sm text-muted">{personal.location}</span>
           </div>
         </Card>
       </div>

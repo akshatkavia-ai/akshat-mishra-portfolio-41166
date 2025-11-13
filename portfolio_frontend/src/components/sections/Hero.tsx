@@ -30,12 +30,12 @@ export default function Hero() {
           />
 
           <div className="reveal">
-            <p className="text-sm text-zinc-300">Hello, I am</p>
-            <h1 className="mt-2 text-4xl md:text-5xl font-extrabold">
+            <p className="text-sm text-muted">Hello, I am</p>
+            <h1 className="mt-2 text-4xl md:text-5xl font-extrabold text-strong">
               <GradientText>{personal.name}</GradientText>
             </h1>
-            <p className="mt-2 text-xl text-zinc-200">{personal.title}</p>
-            <p className="mt-4 max-w-2xl text-zinc-300">{personal.tagline}</p>
+            <p className="mt-2 text-xl text-default">{personal.title}</p>
+            <p className="mt-4 max-w-2xl text-default">{personal.tagline}</p>
 
             {/* Animated message - respects prefers-reduced-motion via globals.css */}
             <p
@@ -124,7 +124,7 @@ export default function Hero() {
                 </a>
               ) : (
                 <button
-                  className="ml-1 inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-zinc-400 cursor-not-allowed"
+                  className="ml-1 inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-muted cursor-not-allowed"
                   aria-disabled="true"
                   disabled
                   title="Resume not available"

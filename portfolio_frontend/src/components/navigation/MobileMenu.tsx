@@ -143,8 +143,8 @@ export default function MobileMenu({
                     href={`#${item.id}`}
                     className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500/50 ${
                       isActive
-                        ? "bg-gradient-to-r from-orange-500/20 to-emerald-500/10 text-white border border-orange-500/30 shadow-lg shadow-orange-500/10"
-                        : "text-zinc-300 hover:text-white hover:bg-white/5 border border-transparent"
+                        ? "bg-gradient-to-r from-orange-500/20 to-emerald-500/10 text-strong border border-orange-500/30 shadow-lg shadow-orange-500/10"
+                        : "text-default hover:text-strong hover:bg-white/5 border border-transparent"
                     }`}
                     onClick={(e) => {
                       // Smooth scroll
@@ -176,7 +176,7 @@ export default function MobileMenu({
 
         {/* Footer decoration */}
         <div className="mt-12 pt-6 border-t border-white/10">
-          <p className="text-xs text-zinc-500 text-center">
+          <p className="text-xs text-muted text-center">
             © 2024 Akshat Mishra
           </p>
         </div>

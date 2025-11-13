@@ -95,7 +95,7 @@ export default function Contact() {
           <GradientText>Contact</GradientText>
         </h2>
         <p className="text-muted mt-2">
-          I’d love to hear about opportunities or collaborations.
+          I&apos;d love to hear about opportunities or collaborations.
         </p>
       </header>
 
@@ -126,28 +126,28 @@ export default function Contact() {
             )}
             <div className="grid gap-3">
               <div>
-                <label htmlFor="name" className="text-sm text-zinc-300">
+                <label htmlFor="name" className="text-sm text-default">
                   Name
                 </label>
                 <input
                   id="name"
                   name="name"
                   type="text"
-                  className="mt-1 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 outline-none focus:ring-2 focus:ring-orange-500"
+                  className="mt-1 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-default outline-none focus:ring-2 focus:ring-orange-500"
                   placeholder="Your name"
                   disabled={pending}
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="text-sm text-zinc-300">
+                <label htmlFor="email" className="text-sm text-default">
                   Email
                 </label>
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  className="mt-1 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 outline-none focus:ring-2 focus:ring-orange-500"
+                  className="mt-1 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-default outline-none focus:ring-2 focus:ring-orange-500"
                   placeholder="you@example.com"
                   disabled={pending}
                   required
@@ -159,13 +159,13 @@ export default function Contact() {
                 <input id="url" name="url" type="text" tabIndex={-1} autoComplete="off" />
               </div>
               <div>
-                <label htmlFor="message" className="text-sm text-zinc-300">
+                <label htmlFor="message" className="text-sm text-default">
                   Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  className="mt-1 h-28 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 outline-none focus:ring-2 focus:ring-orange-500"
+                  className="mt-1 h-28 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-default outline-none focus:ring-2 focus:ring-orange-500"
                   placeholder="How can I help?"
                   disabled={pending}
                   required
@@ -182,8 +182,8 @@ export default function Contact() {
 
         {/* Secondary: Icon links (no text links) */}
         <Card>
-          <h3 className="font-semibold text-white">Connect</h3>
-          <p className="text-zinc-300 mt-2">
+          <h3 className="font-semibold text-strong">Connect</h3>
+          <p className="text-default mt-2">
             Prefer reaching out directly? Use one of the quick links below.
           </p>
           <div className="mt-4 flex items-center gap-3">

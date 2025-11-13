@@ -29,7 +29,7 @@ export default function Badge({
       onClick={onClick}
       className={`inline-flex items-center rounded-full border px-3 py-1 text-xs transition-colors transition-shadow duration-200
         ${interactive ? "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/70" : ""}
-        ${interactive ? "border-white/20 bg-white/10 text-zinc-100 hover:bg-white/15 hover:border-white/30" : "border-white/15 bg-white/5 text-zinc-200"}
+        ${interactive ? "border-white/20 bg-white/10 text-default hover:bg-white/15 hover:border-white/30" : "border-white/15 bg-white/5 text-default"}
         ${className}`}
     >
       {children}

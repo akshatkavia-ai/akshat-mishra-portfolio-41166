@@ -58,8 +58,8 @@ export default function Projects() {
                   primaryHref ? "cursor-pointer group-hover:-translate-y-1 hover:shadow-[0_0_40px_-15px_rgba(249,115,22,0.5)]" : ""
                 } focus-within:ring-2 focus-within:ring-orange-500/70`}
               >
-                <h3 className="font-bold text-lg text-white no-underline">{p.title}</h3>
-                <p className="text-zinc-300 mt-2 no-underline">{p.description}</p>
+                <h3 className="font-bold text-lg text-strong no-underline">{p.title}</h3>
+                <p className="text-default mt-2 no-underline">{p.description}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {p.tags.map((t) => (
                     <Badge key={t} className="group-hover:bg-white/10 no-underline">
