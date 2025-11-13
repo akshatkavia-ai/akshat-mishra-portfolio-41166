@@ -21,8 +21,8 @@ export const personal: Personal = {
   location: "Bengaluru, India",
   social: {
     // TODO: Replace with your profiles
-    github: "https://github.com/akshat",
-    linkedin: "https://www.linkedin.com/in/akshat",
+    github: "https://github.com/theakshatmishra",
+    linkedin: "https://www.linkedin.com/in/akshat-mishra-8615a6249",
     email: "hello@example.com",
   },
 };
