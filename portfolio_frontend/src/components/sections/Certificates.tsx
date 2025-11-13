@@ -21,28 +21,49 @@ export default function Certificates() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
         {certificates.map((c) => {
           const clickable = !!c.credentialUrl;
+          
+          const handleCardClick = () => {
+            if (c.credentialUrl) {
+              window.open(c.credentialUrl, "_blank", "noreferrer");
+            }
+          };
+
+          const handleKeyDown = (e: React.KeyboardEvent) => {
+            if (clickable && (e.key === "Enter" || e.key === " ")) {
+              e.preventDefault();
+              handleCardClick();
+            }
+          };
+
           return (
-            <a
+            <div
               key={`${c.issuer}-${c.title}`}
-              href={c.credentialUrl || undefined}
-              target={clickable ? "_blank" : undefined}
-              rel={clickable ? "noreferrer" : undefined}
-              className={`block group ${clickable ? "focus-visible:outline-none" : ""}`}
+              role={clickable ? "button" : undefined}
+              tabIndex={clickable ? 0 : undefined}
+              onClick={clickable ? handleCardClick : undefined}
+              onKeyDown={clickable ? handleKeyDown : undefined}
+              className={`group no-underline-wrapper ${clickable ? "focus-visible:outline-none" : ""}`}
               aria-label={clickable ? `View credential for ${c.title}` : undefined}
             >
               <Card
-                className={`transition-transform duration-200 ${clickable ? "group-hover:-translate-y-1 hover:shadow-[0_0_40px_-15px_rgba(249,115,22,0.5)] focus-within:ring-2 focus-within:ring-orange-500/70" : ""}`}
+                className={`transition-transform duration-200 ${
+                  clickable
+                    ? "cursor-pointer group-hover:-translate-y-1 hover:shadow-[0_0_40px_-15px_rgba(249,115,22,0.5)] focus-within:ring-2 focus-within:ring-orange-500/70"
+                    : ""
+                }`}
               >
-                {clickable && <span className="absolute inset-0" aria-hidden="true" />}
-                <h3 className="font-semibold text-white">{c.title}</h3>
-                <p className="text-sm text-zinc-300">{c.issuer}</p>
-                <p className="text-xs text-zinc-400 mt-1">{c.date}</p>
+                <h3 className="font-semibold text-white no-underline">{c.title}</h3>
+                <p className="text-sm text-zinc-300 no-underline">{c.issuer}</p>
+                <p className="text-xs text-zinc-400 mt-1 no-underline">{c.date}</p>
                 {c.credentialUrl && (
                   <span className="mt-3 inline-flex">
                     <Button
                       size="sm"
                       variant="ghost"
-                      onClick={(e) => e.stopPropagation()}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(c.credentialUrl, "_blank", "noreferrer");
+                      }}
                       aria-label={`Open credential for ${c.title}`}
                     >
                       View Credential
@@ -50,7 +71,7 @@ export default function Certificates() {
                   </span>
                 )}
               </Card>
-            </a>
+            </div>
           );
         })}
       </div>

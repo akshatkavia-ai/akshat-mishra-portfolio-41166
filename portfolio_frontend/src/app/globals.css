@@ -188,6 +188,30 @@ a:focus-visible {
   border-radius: var(--radius-sm);
 }
 
+/* Prevent underlines in card wrappers (Projects, Certificates sections) */
+.no-underline-wrapper,
+.no-underline-wrapper * {
+  text-decoration: none !important;
+}
+.no-underline-wrapper:hover,
+.no-underline-wrapper:hover * {
+  text-decoration: none !important;
+}
+
+/* Utility class to explicitly prevent underlines */
+.no-underline {
+  text-decoration: none !important;
+}
+.no-underline:hover {
+  text-decoration: none !important;
+}
+
+/* Ensure button links within cards don't get underlines */
+.no-underline-wrapper a.inline-flex,
+.no-underline-wrapper a.inline-flex:hover {
+  text-decoration: none !important;
+}
+
 /* Subtle glow utility for icon buttons */
 .icon-glow {
   /* no default shadow; appears on hover/focus */
