@@ -53,7 +53,7 @@ export default function Hero() {
                 href={personal.social.github}
                 target="_blank"
                 rel="noreferrer"
-                className="btn h-10 w-10 rounded-full border border-white/10 bg-white/[0.06] text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                className="btn icon-glow h-10 w-10 rounded-full border border-white/10 bg-white/[0.06] text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
                 aria-label="GitHub profile"
                 title="GitHub"
               >

@@ -163,12 +163,44 @@ section[data-section] {
   justify-content: center;
   gap: 0.5rem;
   border-radius: var(--radius-md);
-  transition: transform 150ms var(--ease-out), box-shadow 150ms var(--ease-out),
-    opacity 150ms var(--ease-out), background-color 150ms, color 150ms;
+  transition: transform 150ms var(--ease-out), box-shadow 200ms var(--ease-out),
+    opacity 150ms var(--ease-out), background-color 150ms, color 150ms, filter 200ms var(--ease-out);
   font-weight: 600;
 }
 .btn:active {
   transform: translateY(1px);
+}
+
+/* Subtle glow utility for icon buttons */
+.icon-glow {
+  /* no default shadow; appears on hover/focus */
+  will-change: filter, box-shadow;
+}
+.icon-glow:hover {
+  /* orange drop-shadow + soft outer glow */
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--color-primary) 55%, transparent))
+          drop-shadow(0 0 12px color-mix(in oklab, var(--color-primary) 35%, transparent));
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--color-primary) 60%, transparent),
+              0 0 24px -4px color-mix(in oklab, var(--color-primary) 45%, transparent);
+}
+.icon-glow:focus-visible {
+  /* keep explicit focus ring strong and distinct; add subtle outer glow */
+  box-shadow:
+    0 0 0 3px hsla(var(--ring) / 0.6),
+    0 0 0 6px color-mix(in oklab, var(--color-primary) 60%, transparent),
+    0 0 24px -4px color-mix(in oklab, var(--color-primary) 45%, transparent);
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--color-primary) 45%, transparent));
+}
+@media (prefers-reduced-motion: reduce) {
+  .icon-glow,
+  .icon-glow:hover,
+  .icon-glow:focus-visible {
+    transition: none !important;
+    filter: none !important;
+    /* retain focus ring from :focus-visible above but minimize extra glow */
+    box-shadow: 0 0 0 3px hsla(var(--ring) / 0.6),
+                0 0 0 6px color-mix(in oklab, var(--color-primary) 60%, transparent);
+  }
 }
 
 /* Helper text-muted */
