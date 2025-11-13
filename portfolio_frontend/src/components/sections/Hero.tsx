@@ -39,7 +39,7 @@ export default function Hero() {
 
             {/* Animated message - respects prefers-reduced-motion via globals.css */}
             <p
-              className="mt-6 inline-block text-lg font-semibold bg-gradient-to-r from-orange-400 via-orange-500 to-emerald-400 bg-clip-text text-transparent will-change-transform"
+              className="mt-8 inline-block w-full text-center text-lg font-semibold bg-gradient-to-r from-orange-400 via-orange-500 to-emerald-400 bg-clip-text text-transparent will-change-transform"
               style={{ animation: "fade-in 700ms var(--ease-out) both" }}
               aria-live="polite"
             >
@@ -47,7 +47,7 @@ export default function Hero() {
             </p>
 
             {/* Compact row: social icon buttons + resume link */}
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
               {/* GitHub */}
               <a
                 href={personal.social.github}
