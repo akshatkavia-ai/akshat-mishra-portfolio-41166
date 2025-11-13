@@ -143,6 +143,7 @@ section[data-section] {
 .animate-glow-pulse {
   animation: glow-pulse 6s ease-in-out infinite;
 }
+/* Helper to disable animations for reduced motion is already defined above */
 
 /* InView reveal */
 .reveal {
