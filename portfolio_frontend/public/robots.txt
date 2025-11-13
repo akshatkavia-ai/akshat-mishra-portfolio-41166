@@ -1,0 +1,7 @@
+# robots.txt
+# If deploying with NEXT_PUBLIC_FRONTEND_URL set, this file remains valid for static export.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://example.com/sitemap.xml

@@ -1,0 +1,266 @@
+@import "tailwindcss";
+
+/* Theme variables based on Electric Orange style */
+:root {
+  --color-primary: #F97316; /* Electric Orange */
+  --color-secondary: #10B981; /* Green - success */
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-surface: #1F2937; /* Slate-800 */
+  --color-background: #000000; /* Black */
+  --color-text: #FFFFFF;
+  --ring: 0 0% 100%; /* white ring */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  /* Animation timing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+}
+
+/* Base resets */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+/* Focus visible styles for accessibility */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px hsla(var(--ring) / 0.6),
+    0 0 0 6px color-mix(in oklab, var(--color-primary) 60%, transparent);
+  border-radius: var(--radius-sm);
+}
+
+/* Desktop nav underline hover helper: make parent group hover scale underline */
+nav[role="navigation"] a span.relative:hover > span {
+  transform: scaleX(1);
+}
+
+/* Smooth underline track container for active indicator */
+@media (min-width: 768px) {
+  nav[role="navigation"] {
+    position: relative;
+  }
+}
+
+/* Reduce motion preferences - allow hover effects to remain visible */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  /* Allow quick transitions for interactive states so hover effects are still visible */
+  *:hover,
+  *:focus,
+  *:focus-visible,
+  .group:hover *,
+  .group:focus * {
+    transition-duration: 0.15s !important;
+  }
+}
+
+/* Utilities: glassmorphism card */
+.glass {
+  background: color-mix(in oklab, var(--color-surface) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+}
+
+/* Gradient border utility using mask trick */
+.gradient-border {
+  position: relative;
+  border-radius: var(--radius-lg);
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-primary) 80%, transparent),
+    color-mix(in oklab, var(--color-secondary) 60%, transparent)
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  padding: 1px;
+}
+
+/* Glow utility: used by Glow component; fallbacks in reduced motion */
+.glow {
+  filter: blur(40px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow {
+    opacity: 0.2;
+  }
+}
+
+/* Section spacing + anchor offset for sticky navbar (approx 72px header) */
+section[data-section] {
+  scroll-margin-top: 88px;
+}
+
+/* Keyframes */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.45; }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fade-in 600ms var(--ease-out) 1 both;
+}
+.animate-slide-up {
+  animation: slide-up 700ms var(--ease-out) 1 both;
+}
+.animate-glow-pulse {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+/* Helper to disable animations for reduced motion is already defined above */
+
+/* InView reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms var(--ease-out), transform 700ms var(--ease-out);
+}
+.in-view .reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Buttons base styles (complementary to Tailwind classes) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-md);
+  transition: transform 150ms var(--ease-out), box-shadow 200ms var(--ease-out),
+    opacity 150ms var(--ease-out), background-color 150ms, color 150ms, filter 200ms var(--ease-out);
+  font-weight: 600;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Interactive anchors */
+a {
+  transition: color 150ms var(--ease-out), text-decoration-color 150ms var(--ease-out);
+  text-decoration-thickness: 0.075em;
+  text-underline-offset: 3px;
+}
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--color-primary) 80%, transparent);
+}
+a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px hsla(var(--ring) / 0.6),
+    0 0 0 6px color-mix(in oklab, var(--color-primary) 60%, transparent);
+  border-radius: var(--radius-sm);
+}
+
+/* Prevent underlines in card wrappers (Projects, Certificates sections) */
+.no-underline-wrapper,
+.no-underline-wrapper * {
+  text-decoration: none !important;
+}
+.no-underline-wrapper:hover,
+.no-underline-wrapper:hover * {
+  text-decoration: none !important;
+}
+
+/* Utility class to explicitly prevent underlines */
+.no-underline {
+  text-decoration: none !important;
+}
+.no-underline:hover {
+  text-decoration: none !important;
+}
+
+/* Ensure button links within cards don't get underlines */
+.no-underline-wrapper a.inline-flex,
+.no-underline-wrapper a.inline-flex:hover {
+  text-decoration: none !important;
+}
+
+/* Subtle glow utility for icon buttons */
+.icon-glow {
+  /* no default shadow; appears on hover/focus */
+  will-change: filter, box-shadow;
+}
+.icon-glow:hover {
+  /* orange drop-shadow + soft outer glow */
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--color-primary) 55%, transparent))
+          drop-shadow(0 0 12px color-mix(in oklab, var(--color-primary) 35%, transparent));
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--color-primary) 60%, transparent),
+              0 0 24px -4px color-mix(in oklab, var(--color-primary) 45%, transparent);
+}
+.icon-glow:focus-visible {
+  /* keep explicit focus ring strong and distinct; add subtle outer glow */
+  box-shadow:
+    0 0 0 3px hsla(var(--ring) / 0.6),
+    0 0 0 6px color-mix(in oklab, var(--color-primary) 60%, transparent),
+    0 0 24px -4px color-mix(in oklab, var(--color-primary) 45%, transparent);
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--color-primary) 45%, transparent));
+}
+@media (prefers-reduced-motion: reduce) {
+  .icon-glow,
+  .icon-glow:hover,
+  .icon-glow:focus-visible {
+    transition: none !important;
+    filter: none !important;
+    /* retain focus ring from :focus-visible above but minimize extra glow */
+    box-shadow: 0 0 0 3px hsla(var(--ring) / 0.6),
+                0 0 0 6px color-mix(in oklab, var(--color-primary) 60%, transparent);
+  }
+}
+
+/* Project card hover utility */
+.project-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 40px -15px rgba(249, 115, 22, 0.5);
+}
+
+/* Helper text-muted */
+.text-muted {
+  color: color-mix(in oklab, var(--color-text) 70%, transparent);
+}
