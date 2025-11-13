@@ -13,7 +13,7 @@ export type Personal = {
 
 export const personal: Personal = {
   name: "Akshat Mishra",
-  title: "Software Developer • AI • Cloud • MERN",
+  title: "Software Developer",
   tagline:
     "I build intelligent, scalable solutions across AI, Cloud, and the MERN stack.",
   // TODO: Replace with your hosted resume file/link
@@ -23,6 +23,6 @@ export const personal: Personal = {
     // TODO: Replace with your profiles
     github: "https://github.com/theakshatmishra",
     linkedin: "https://www.linkedin.com/in/akshat-mishra-8615a6249",
-    email: "hello@example.com",
+    email: "theakshatmishra0702@gmail.com",
   },
 };
