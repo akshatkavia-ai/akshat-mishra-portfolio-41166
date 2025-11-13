@@ -42,13 +42,13 @@ export default function Certificates() {
               tabIndex={clickable ? 0 : undefined}
               onClick={clickable ? handleCardClick : undefined}
               onKeyDown={clickable ? handleKeyDown : undefined}
-              className={`group no-underline-wrapper ${clickable ? "focus-visible:outline-none" : ""}`}
+              className={`group no-underline-wrapper rounded-2xl ${clickable ? "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/70" : ""}`}
               aria-label={clickable ? `View credential for ${c.title}` : undefined}
             >
               <Card
-                className={`transition-transform duration-200 ${
+                className={`transition-all duration-300 ${
                   clickable
-                    ? "cursor-pointer group-hover:-translate-y-1 hover:shadow-[0_0_40px_-15px_rgba(249,115,22,0.5)] focus-within:ring-2 focus-within:ring-orange-500/70"
+                    ? "cursor-pointer group-hover:-translate-y-2 group-hover:shadow-[0_8px_40px_-10px_rgba(249,115,22,0.6)] group-hover:scale-[1.02]"
                     : ""
                 }`}
               >

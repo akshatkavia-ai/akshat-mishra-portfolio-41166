@@ -50,19 +50,19 @@ export default function Projects() {
               tabIndex={primaryHref ? 0 : undefined}
               onClick={primaryHref ? handleCardClick : undefined}
               onKeyDown={primaryHref ? handleKeyDown : undefined}
-              className="group focus-visible:outline-none no-underline-wrapper"
+              className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/70 rounded-2xl no-underline-wrapper"
               aria-label={primaryHref ? `Open ${p.title}` : undefined}
             >
               <Card
-                className={`relative transition-transform duration-200 ${
-                  primaryHref ? "cursor-pointer group-hover:-translate-y-1 hover:shadow-[0_0_40px_-15px_rgba(249,115,22,0.5)]" : ""
-                } focus-within:ring-2 focus-within:ring-orange-500/70`}
+                className={`relative transition-all duration-300 ${
+                  primaryHref ? "cursor-pointer group-hover:-translate-y-2 group-hover:shadow-[0_8px_40px_-10px_rgba(249,115,22,0.6)] group-hover:scale-[1.02]" : ""
+                }`}
               >
                 <h3 className="font-bold text-lg text-strong no-underline">{p.title}</h3>
                 <p className="text-default mt-2 no-underline">{p.description}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {p.tags.map((t) => (
-                    <Badge key={t} className="group-hover:bg-white/10 no-underline">
+                    <Badge key={t} className="group-hover:bg-white/20 group-hover:border-orange-500/30 transition-all duration-300 no-underline">
                       {t}
                     </Badge>
                   ))}

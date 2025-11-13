@@ -62,12 +62,22 @@ nav[role="navigation"] a span.relative:hover > span {
   }
 }
 
-/* Reduce motion preferences */
+/* Reduce motion preferences - allow hover effects to remain visible */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition-duration: 0.01ms !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
+  }
+  /* Allow quick transitions for interactive states so hover effects are still visible */
+  *:hover,
+  *:focus,
+  *:focus-visible,
+  .group:hover *,
+  .group:focus * {
+    transition-duration: 0.15s !important;
   }
 }
 

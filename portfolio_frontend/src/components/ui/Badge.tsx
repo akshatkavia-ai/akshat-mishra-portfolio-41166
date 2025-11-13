@@ -21,15 +21,25 @@ export default function Badge({
   "aria-label"?: string;
 }) {
   const interactive = !!onClick || role === "button";
+  
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLSpanElement>) => {
+    if (interactive && onClick && (e.key === "Enter" || e.key === " ")) {
+      e.preventDefault();
+      // Trigger click programmatically for keyboard events
+      e.currentTarget.click();
+    }
+  };
+  
   return (
     <span
       role={role}
       aria-label={ariaLabel}
       tabIndex={interactive ? (typeof tabIndex === "number" ? tabIndex : 0) : tabIndex}
       onClick={onClick}
-      className={`inline-flex items-center rounded-full border px-3 py-1 text-xs transition-colors transition-shadow duration-200
+      onKeyDown={handleKeyDown}
+      className={`inline-flex items-center rounded-full border px-3 py-1 text-xs transition-all duration-200
         ${interactive ? "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/70" : ""}
-        ${interactive ? "border-white/20 bg-white/10 text-default hover:bg-white/15 hover:border-white/30" : "border-white/15 bg-white/5 text-default"}
+        ${interactive ? "border-white/20 bg-white/10 text-default hover:bg-white/15 hover:border-white/30 hover:scale-105" : "border-white/15 bg-white/5 text-default"}
         ${className}`}
     >
       {children}

@@ -38,7 +38,7 @@ export default function Skills() {
                   onClick={() => onSkillClick()}
                   role="button"
                   aria-label={`Filter projects by ${String(_skill)}`}
-                  className="hover:shadow-[0_0_0_2px_rgba(249,115,22,0.25)]"
+                  className="hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:border-orange-500/40"
                 >
                   {_skill}
                 </Badge>
