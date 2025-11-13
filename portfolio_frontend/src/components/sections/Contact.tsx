@@ -1,20 +1,16 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import GradientText from "../ui/GradientText";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
 import { submitContact, ContactPayload } from "@/lib/contact";
 import { personal } from "@/data/personal";
 
-const API_BASE = (process.env.NEXT_PUBLIC_API_BASE || "").trim();
-
 export default function Contact() {
   const [pending, setPending] = useState(false);
   const [notice, setNotice] = useState<{ type: "success" | "error"; msg: string } | null>(null);
   const abortRef = useRef<AbortController | null>(null);
-
-  const configured = useMemo(() => API_BASE.length > 0, []);
 
   function validate(p: ContactPayload) {
     if (!p.name || p.name.trim().length < 2) return "Please enter your name.";
@@ -41,14 +37,6 @@ export default function Contact() {
     const invalid = validate(payload);
     if (invalid) {
       setNotice({ type: "error", msg: invalid });
-      return;
-    }
-
-    if (!configured) {
-      setNotice({
-        type: "error",
-        msg: "Contact form requires configuration. Please set NEXT_PUBLIC_API_BASE to your form endpoint.",
-      });
       return;
     }
 
@@ -103,15 +91,6 @@ export default function Contact() {
         {/* Primary: Contact Form */}
         <Card>
           <form onSubmit={onSubmit} noValidate>
-            {!configured && (
-              <div
-                role="status"
-                className="mb-4 rounded-md border border-yellow-500/30 bg-yellow-500/10 px-3 py-2 text-sm text-yellow-300"
-              >
-                Contact form requires configuration. Please set NEXT_PUBLIC_API_BASE to your form
-                endpoint.
-              </div>
-            )}
             {notice && (
               <div
                 role="status"
@@ -172,7 +151,7 @@ export default function Contact() {
                 />
               </div>
               <div className="flex items-center justify-end">
-                <Button type="submit" disabled={!configured || pending}>
+                <Button type="submit" disabled={pending}>
                   {pending ? "Sending..." : "Send Message"}
                 </Button>
               </div>
