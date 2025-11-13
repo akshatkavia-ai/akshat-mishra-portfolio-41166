@@ -120,9 +120,6 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <p className="text-center text-xs text-muted mt-6">
-          Built with Next.js. Light on dependencies, fast on the web.
-        </p>
       </Container>
     </footer>
   );

@@ -14,11 +14,11 @@ export const experience: ExperienceItem[] = [
   {
     company: "Kloudstac",
     role: "AI and Cloud Research Intern",
-    duration: "May'24 - Jul'24",
-    period: "May'24 - Jul'24",
-    location: "Bengaluru",
+    duration: "May 2024 - July 2024",
+    period: "May 2024 - July 2024",
+    location: "Remote",
     highlights: [
-      "AI and Cloud Research Intern role based in Bengaluru."
+      "Worked on Generative AI, Data Engineering, and Cloud (AWS, Azure, GCP, Databricks). Contributed to AI upskilling program development, Generative AI research, and creation of technical content, coding labs, and demos. Gained hands-on experience in LLMs, cloud integration, and modern AI acceleration workflows."
     ],
     logo: "default-company-logo",
     description: "Worked on Generative AI, Data Engineering, and Cloud (AWS, Azure, GCP, Databricks). Contributed to AI upskilling program development, Generative AI research, and creation of technical content, coding labs, and demos. Gained hands-on experience in LLMs, cloud integration, and modern AI acceleration workflows."
