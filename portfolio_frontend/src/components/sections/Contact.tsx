@@ -23,7 +23,7 @@ export default function Contact() {
       return "Please enter a message (min 10 characters).";
     if (p.honeypot && p.honeypot.length > 0) return "Spam detected.";
     return null;
-    }
+  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -65,53 +65,42 @@ export default function Contact() {
     if (res.success) form.reset();
   }
 
+  function IconButton({
+    href,
+    label,
+    children,
+  }: {
+    href: string;
+    label: string;
+    children: React.ReactNode;
+  }) {
+    const external = /^https?:\/\//.test(href);
+    return (
+      <a
+        href={href}
+        aria-label={label}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noreferrer" : undefined}
+        className="group inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-white/5 text-white transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <div>
-      <header className="mb-6">
+      <header className="mb-8">
         <h2 className="text-3xl md:text-4xl font-extrabold">
           <GradientText>Contact</GradientText>
         </h2>
-        <p className="text-muted mt-1">
+        <p className="text-muted mt-2">
           I’d love to hear about opportunities or collaborations.
         </p>
       </header>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <Card>
-          <h3 className="font-semibold text-white">Get in touch</h3>
-          <p className="text-zinc-300 mt-2">
-            Email:{" "}
-            <a
-              href={`mailto:${personal.social.email}`}
-              className="underline underline-offset-4 decoration-white/30 hover:text-white"
-            >
-              {personal.social.email}
-            </a>
-          </p>
-          <p className="text-zinc-300">
-            LinkedIn:{" "}
-            <a
-              href={personal.social.linkedin}
-              className="underline underline-offset-4 decoration-white/30 hover:text-white"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {personal.social.linkedin}
-            </a>
-          </p>
-          <p className="text-zinc-300">
-            GitHub:{" "}
-            <a
-              href={personal.social.github}
-              className="underline underline-offset-4 decoration-white/30 hover:text-white"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {personal.social.github}
-            </a>
-          </p>
-        </Card>
-
+        {/* Primary: Contact Form */}
         <Card>
           <form onSubmit={onSubmit} noValidate>
             {!configured && (
@@ -119,9 +108,8 @@ export default function Contact() {
                 role="status"
                 className="mb-4 rounded-md border border-yellow-500/30 bg-yellow-500/10 px-3 py-2 text-sm text-yellow-300"
               >
-                Contact form requires configuration. Please set
-                {" "}NEXT_PUBLIC_API_BASE{" "}
-                to your form endpoint.
+                Contact form requires configuration. Please set NEXT_PUBLIC_API_BASE to your form
+                endpoint.
               </div>
             )}
             {notice && (
@@ -190,6 +178,48 @@ export default function Contact() {
               </div>
             </div>
           </form>
+        </Card>
+
+        {/* Secondary: Icon links (no text links) */}
+        <Card>
+          <h3 className="font-semibold text-white">Connect</h3>
+          <p className="text-zinc-300 mt-2">
+            Prefer reaching out directly? Use one of the quick links below.
+          </p>
+          <div className="mt-4 flex items-center gap-3">
+            <IconButton href={personal.social.github} label="Visit GitHub profile">
+              <svg
+                className="h-5 w-5 transition-transform duration-200 group-hover:scale-105"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="currentColor"
+              >
+                <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.76.08-.75.08-.75 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.98 0-1.32.47-2.39 1.25-3.23-.13-.3-.54-1.51.12-3.15 0 0 1.01-.32 3.31 1.23a11.5 11.5 0 0 1 6.02 0c2.3-1.55 3.31-1.23 3.31-1.23.66 1.64.25 2.85.12 3.15.78.84 1.25 1.91 1.25 3.23 0 4.65-2.8 5.68-5.48 5.98.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .5Z" />
+              </svg>
+            </IconButton>
+
+            <IconButton href={personal.social.linkedin} label="Open LinkedIn profile">
+              <svg
+                className="h-5 w-5 transition-transform duration-200 group-hover:scale-105"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="currentColor"
+              >
+                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8.98h5V24H0zM8.98 8.98h4.79v2.05h.07c.67-1.27 2.29-2.61 4.72-2.61 5.05 0 5.99 3.32 5.99 7.64V24h-5v-6.73c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.6 1.75-2.6 3.56V24h-5z" />
+              </svg>
+            </IconButton>
+
+            <IconButton href={`mailto:${personal.social.email}`} label="Send email">
+              <svg
+                className="h-5 w-5 transition-transform duration-200 group-hover:scale-105"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="currentColor"
+              >
+                <path d="M20 4H4a2 2 0 0 0-2 2v.4l10 6.25L22 6.4V6a2 2 0 0 0-2-2Zm0 4.15-8 5-8-5V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.15Z" />
+              </svg>
+            </IconButton>
+          </div>
         </Card>
       </div>
     </div>
