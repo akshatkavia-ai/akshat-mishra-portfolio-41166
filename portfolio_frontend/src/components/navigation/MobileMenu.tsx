@@ -4,6 +4,10 @@ import { useEffect, useRef } from "react";
 
 type Item = { id: string; label: string };
 
+/**
+ * MobileMenu component - currently not in use as navigation has been removed.
+ * Kept in codebase for potential future implementation.
+ */
 export default function MobileMenu({
   id,
   open,
@@ -31,6 +35,7 @@ export default function MobileMenu({
     if (open) dialogRef.current?.focus();
   }, [open]);
 
+  // Component kept for future use but won't be rendered without trigger button
   if (!open) return null;
 
   return (
