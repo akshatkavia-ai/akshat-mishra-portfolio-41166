@@ -19,7 +19,10 @@ export default function Experience() {
 
       <div className="space-y-6 reveal">
         {experience.map((e) => (
-          <Card key={`${e.company}-${e.role}`} className="relative">
+          <Card
+            key={`${e.company}-${e.role}`}
+            className="relative hover:shadow-[0_0_36px_-18px_rgba(249,115,22,0.35)] focus-within:ring-2 focus-within:ring-orange-500/60"
+          >
             <div className="absolute left-0 top-0 h-full w-1 rounded-l-lg bg-gradient-to-b from-orange-500/80 to-emerald-500/80" />
             <div className="pl-4">
               <div className="flex flex-wrap items-center justify-between gap-2">

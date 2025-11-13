@@ -171,6 +171,23 @@ section[data-section] {
   transform: translateY(1px);
 }
 
+/* Interactive anchors */
+a {
+  transition: color 150ms var(--ease-out), text-decoration-color 150ms var(--ease-out);
+  text-decoration-thickness: 0.075em;
+  text-underline-offset: 3px;
+}
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--color-primary) 80%, transparent);
+}
+a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px hsla(var(--ring) / 0.6),
+    0 0 0 6px color-mix(in oklab, var(--color-primary) 60%, transparent);
+  border-radius: var(--radius-sm);
+}
+
 /* Subtle glow utility for icon buttons */
 .icon-glow {
   /* no default shadow; appears on hover/focus */
@@ -201,6 +218,12 @@ section[data-section] {
     box-shadow: 0 0 0 3px hsla(var(--ring) / 0.6),
                 0 0 0 6px color-mix(in oklab, var(--color-primary) 60%, transparent);
   }
+}
+
+/* Project card hover utility */
+.project-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 40px -15px rgba(249, 115, 22, 0.5);
 }
 
 /* Helper text-muted */

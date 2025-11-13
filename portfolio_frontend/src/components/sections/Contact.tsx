@@ -81,7 +81,7 @@ export default function Contact() {
         aria-label={label}
         target={external ? "_blank" : undefined}
         rel={external ? "noreferrer" : undefined}
-        className="group inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-white/5 text-white transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+        className="group inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-white/5 text-white transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 icon-glow"
       >
         {children}
       </a>

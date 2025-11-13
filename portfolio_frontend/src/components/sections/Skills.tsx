@@ -9,6 +9,15 @@ import { useInView } from "@/hooks/useInView";
 export default function Skills() {
   const { ref } = useInView<HTMLDivElement>();
 
+  const onSkillClick = () => {
+    // Optional behavior: scroll to projects if section exists; filter behavior can be wired later.
+    const projects = document.getElementById("projects");
+    if (projects) {
+      projects.scrollIntoView({ behavior: "smooth" });
+    }
+    // No-op beyond scroll; filtering not implemented in current scope.
+  };
+
   return (
     <div ref={ref} className="in-view">
       <header className="mb-6">
@@ -23,8 +32,16 @@ export default function Skills() {
           <Card key={group.group}>
             <h3 className="font-semibold text-white">{group.group}</h3>
             <div className="mt-3 flex flex-wrap gap-2">
-              {group.items.map((skill) => (
-                <Badge key={skill}>{skill}</Badge>
+              {group.items.map((_skill) => (
+                <Badge
+                  key={_skill}
+                  onClick={() => onSkillClick()}
+                  role="button"
+                  aria-label={`Filter projects by ${String(_skill)}`}
+                  className="hover:shadow-[0_0_0_2px_rgba(249,115,22,0.25)]"
+                >
+                  {_skill}
+                </Badge>
               ))}
             </div>
           </Card>
