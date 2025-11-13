@@ -33,20 +33,10 @@ function isAbortError(err: unknown): boolean {
 }
 
 /**
- * Resolve the contact submission endpoint:
- * - Prefer NEXT_PUBLIC_FORMSPREE_ENDPOINT (if present)
- * - Fallback to NEXT_PUBLIC_API_BASE (legacy)
- * - Default to the provided Formspree URL
+ * Constant Formspree endpoint. This app intentionally ignores any environment
+ * variable overrides and always posts to the official endpoint.
  */
-function resolveEndpoint(): string {
-  const fromFormspree = (process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "").trim();
-  const fromApiBase = (process.env.NEXT_PUBLIC_API_BASE || "").trim();
-  const endpoint =
-    fromFormspree ||
-    fromApiBase ||
-    "https://formspree.io/f/xzzyzayj";
-  return endpoint;
-}
+const FORMSPREE_URL = "https://formspree.io/f/xzzyzayj";
 
 // PUBLIC_INTERFACE
 export async function submitContact(
@@ -54,10 +44,10 @@ export async function submitContact(
   signal?: AbortSignal
 ): Promise<ContactResponse> {
   /**
-   * Submit contact form payload to Formspree (or configured endpoint).
+   * Submit contact form payload to Formspree using a hardcoded endpoint.
    * Sends JSON with appropriate headers and parses success/error states.
    */
-  const url = resolveEndpoint();
+  const url = FORMSPREE_URL;
 
   // Simple spam/honeypot check before sending
   if (data.honeypot && data.honeypot.length > 0) {
