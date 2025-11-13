@@ -1,0 +1,28 @@
+export type Personal = {
+  name: string;
+  title: string;
+  tagline: string;
+  resumeUrl: string;
+  location: string;
+  social: {
+    github: string;
+    linkedin: string;
+    email: string;
+  };
+};
+
+export const personal: Personal = {
+  name: "Akshat Mishra",
+  title: "Software Developer • AI • Cloud • MERN",
+  tagline:
+    "I build intelligent, scalable solutions across AI, Cloud, and the MERN stack.",
+  // TODO: Replace with your hosted resume file/link
+  resumeUrl: "https://example.com/resume.pdf",
+  location: "Bengaluru, India",
+  social: {
+    // TODO: Replace with your profiles
+    github: "https://github.com/akshat",
+    linkedin: "https://www.linkedin.com/in/akshat",
+    email: "hello@example.com",
+  },
+};

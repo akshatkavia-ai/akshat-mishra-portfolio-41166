@@ -1,9 +1,40 @@
+import Navbar from "@/components/navigation/Navbar";
+import Footer from "@/components/navigation/Footer";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Skills from "@/components/sections/Skills";
+import Projects from "@/components/sections/Projects";
+import Experience from "@/components/sections/Experience";
+import Certificates from "@/components/sections/Certificates";
+import Contact from "@/components/sections/Contact";
+import Container from "@/components/ui/Container";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white flex items-center justify-center">
-      <h1 className="text-black text-4xl font-light">
-        portfolio_frontend is being generated
-      </h1>
-    </main>
+    <>
+      <Navbar />
+      <main id="home" className="flex flex-col">
+        <Hero />
+        <Container as="section" id="about" data-section>
+          <About />
+        </Container>
+        <Container as="section" id="skills" data-section>
+          <Skills />
+        </Container>
+        <Container as="section" id="projects" data-section>
+          <Projects />
+        </Container>
+        <Container as="section" id="experience" data-section>
+          <Experience />
+        </Container>
+        <Container as="section" id="certificates" data-section>
+          <Certificates />
+        </Container>
+        <Container as="section" id="contact" data-section>
+          <Contact />
+        </Container>
+      </main>
+      <Footer />
+    </>
   );
 }
